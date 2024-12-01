@@ -1,8 +1,12 @@
 import express from "express";
 import cors from "cors";
+import "dotenv/config";
+import connectDB from "./config/mongodb.js";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 4000;
+
+connectDB();
 
 //api
 app.use(express.json()); //ทำให้มันเป็น json ได้
