@@ -1,7 +1,6 @@
 import newsModel from "../models/newsModel.js";
 import bannersModel from "../models/newsModel.js";
 import gamesDataModel from "../models/gamesDataModel.js";
-import { number } from "zod";
 
 export const getBannersHomePage = async (req, res) => {
   try {

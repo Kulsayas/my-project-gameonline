@@ -1,9 +1,12 @@
-import gamesDataModel from "../models/gamesDataModel.js";
+import {
+  getGames as fetchGames,
+  getdetailGamesById,
+} from "../service.js/gamesDataService.js";
 
-export const getGamesData = async (req, res) => {
+export const getAllGames = async (req, res) => {
   try {
-    const gamesData = await gamesDataModel.find();
-    res.status(200).send({
+    const gamesData = await fetchGames();
+    res.status(200).json({
       data: gamesData,
     });
   } catch (error) {
@@ -15,20 +18,10 @@ export const getGamesData = async (req, res) => {
   }
 };
 
-export const getdetailGamesById = async (req, res) => {
+export const detailGamesById = async (req, res) => {
   try {
-    const id = req.params.gameId;
-    const detailValue = await gamesDataModel.findById(id);
-    if (!detailValue) {
-      res.status(400).send({
-        status: "failure",
-        message: "Games not found",
-      });
-      return;
-    }
-    res.status(200).json({
-      data: detailValue,
-    });
+    const detailGame = await getdetailGamesById(req);
+    return res.status(200).json({ detailGame });
   } catch (error) {
     res.status(500).send({
       status: "failure",

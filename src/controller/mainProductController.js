@@ -5,7 +5,7 @@ import {
   getPopularGames,
 } from "../service.js/main-product.js";
 
-export const getMainProduct = async (req, res, next) => {
+export const getMainProduct = async (req, res) => {
   try {
     const banners = await getBannersHomePage();
     const News = await getNewsHomepage();
@@ -13,6 +13,9 @@ export const getMainProduct = async (req, res, next) => {
     const popular = await getPopularGames();
     return res.status(200).json({ banners, News, reccomend, popular });
   } catch (error) {
-    next(error);
+    res.status(500).send({
+      status: "failure",
+      message: "Internal server error.",
+    });
   }
 };

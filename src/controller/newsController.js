@@ -1,28 +1,25 @@
-import newsModel from "../models/newsModel.js";
+import { getNews, getNewsById } from "../service.js/newsService.js";
 
-export const getNews = async (req, res) => {
+export const allNews = async (req, res) => {
   try {
-    const news = (await newsModel.find()) || [];
-    res.status(200).send({
-      data: news,
-    });
+    const allNews = await getNews();
+    return res.status(200).json({ allNews });
   } catch (error) {
     res.status(500).send({
       error: error,
       status: "failure",
-      message: "Internal server error.",
+      message: "",
     });
   }
 };
 
-export const getNewsById = async (req, res) => {
+export const newsById = async (req, res) => {
   try {
-    const id = req.params.newsId;
-    let newById = await newsModel.findById(id);
-    if (!newById) {
-      return res.status(400).send("Content game not found");
+    const newsId = await getNewsById();
+    if (!newsId) {
+      return res.status(400).send("News not found");
     } else {
-      res.json({ data: newById });
+      return res.status(200).json({ newsId });
     }
   } catch (error) {
     res.status(500).send({

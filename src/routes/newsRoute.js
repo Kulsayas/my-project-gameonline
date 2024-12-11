@@ -1,9 +1,9 @@
 import express from "express";
-import { getNews, getNewsById } from "../controller/newsController.js";
+import { allNews, newsById } from "../controller/newsController.js";
 
 const newsRouter = express.Router();
 
-newsRouter.get("/", getNews);
-newsRouter.get("/:newsId", getNewsById);
+newsRouter.get("/", allNews);
+newsRouter.get("/:newsId", newsById);
 
 export default newsRouter;

@@ -1,12 +1,12 @@
 import express from "express";
 import {
-  getGamesData,
-  getdetailGamesById,
+  getAllGames,
+  detailGamesById,
 } from "../controller/gamesDataController.js";
 
 const gamesRouter = express.Router();
 
-gamesRouter.get("/", getGamesData);
-gamesRouter.get("/:gameId", getdetailGamesById);
+gamesRouter.get("/", getAllGames);
+gamesRouter.get("/games/:gameId", detailGamesById);
 
 export default gamesRouter;
