@@ -1,4 +1,4 @@
-import { getNews, getNewsById } from "../service.js/newsService.js";
+import { getNews, getNewsById } from "../service/newsService.js";
 
 export const allNews = async (req, res) => {
   try {

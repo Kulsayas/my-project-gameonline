@@ -3,7 +3,7 @@ import {
   getNewsHomepage,
   getreccomendGames,
   getPopularGames,
-} from "../service.js/main-product.js";
+} from "../service/main-product.js";
 
 export const getMainProduct = async (req, res) => {
   try {

@@ -10,6 +10,7 @@ import bannerRouter from "./routes/bannersRoute.js";
 import gamesRouter from "./routes/gamesDataRoute.js";
 import mainProductRouter from "./routes/mainProductRoutes.js";
 import searchProductRouter from "./routes/searchRouter.js";
+import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -29,6 +30,7 @@ app.use("/api/banner", bannerRouter);
 app.use("/api/products", gamesRouter);
 app.use("/api/main-product", mainProductRouter);
 app.use("/search", searchProductRouter);
+app.use("/api/users", userRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");

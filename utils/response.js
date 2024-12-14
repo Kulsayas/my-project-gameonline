@@ -1,5 +1,3 @@
-import { res } from "express";
-
 export const SuccessResponse = (res, statusCode, message) => {
   res.status(statusCode).json({
     status: "success",
