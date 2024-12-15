@@ -43,7 +43,6 @@ export const createUserService = async (
 export const loginUserService = async (email, password) => {
   try {
     const existingUser = await userModel.findOne({ email });
-    console.log(existingUser, "user");
     if (!existingUser) {
       throw new Error("Email not found.");
     }
@@ -60,7 +59,6 @@ export const loginUserService = async (email, password) => {
         expiresIn: "1h",
       }
     );
-    console.log("token = ", token);
     return token;
   } catch (error) {
     console.error("Error in loginUserService:", error.message);
