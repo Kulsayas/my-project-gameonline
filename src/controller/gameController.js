@@ -2,7 +2,7 @@ import {
   getGames as fetchGames,
   getdetailGamesById,
   getSearch,
-} from "../service/gamesService.js";
+} from "../service/gameService.js";
 
 export const getAllGames = async (req, res) => {
   try {

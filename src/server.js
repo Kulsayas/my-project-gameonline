@@ -7,7 +7,7 @@ import connectCloudinary from "./config/cloudinary.js";
 //Custom route
 import newsRouter from "./routes/newsRoute.js";
 import bannerRouter from "./routes/bannersRoute.js";
-import gamesRouter from "./routes/gamesRoute.js";
+import gamesRouter from "./routes/gameRoute.js";
 import mainProductRouter from "./routes/mainProductRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 

@@ -3,7 +3,7 @@ import {
   getAllGames,
   detailGamesById,
   searchProduct,
-} from "../controller/gamesController.js";
+} from "../controller/gameController.js";
 
 const gamesRouter = express.Router();
 
