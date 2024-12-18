@@ -1,7 +1,8 @@
 import {
   getGames as fetchGames,
   getdetailGamesById,
-} from "../service/gamesDataService.js";
+  getSearch,
+} from "../service/gamesService.js";
 
 export const getAllGames = async (req, res) => {
   try {
@@ -21,7 +22,20 @@ export const getAllGames = async (req, res) => {
 export const detailGamesById = async (req, res) => {
   try {
     const detailGame = await getdetailGamesById(req);
-    return res.status(200).json({ detailGame });
+    res.status(200).json({ detailGame });
+  } catch (error) {
+    res.status(500).send({
+      status: "failure",
+      message: "Internal server error.",
+    });
+  }
+};
+
+export const searchProduct = async (req, res) => {
+  try {
+    const key = req.params.gameTitle;
+    const searchProducts = await getSearch(key);
+    res.status(200).json({ searchProducts });
   } catch (error) {
     res.status(500).send({
       status: "failure",
